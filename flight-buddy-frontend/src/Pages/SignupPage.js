@@ -2,14 +2,15 @@ import React, { useState } from 'react';
 import { Container, TextField, Button, Typography, Box, Link } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
-const LoginPage = () => {
+const SignupPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle login logic
+    // Handle signup logic
   };
 
   return (
@@ -37,7 +38,7 @@ const LoginPage = () => {
           }}
         >
           <Typography variant="h4" gutterBottom>
-            Login to Flight Buddy
+            Sign Up for Flight Buddy
           </Typography>
           <form onSubmit={handleSubmit}>
             <TextField
@@ -70,6 +71,21 @@ const LoginPage = () => {
                 style: { fontSize: 18 }, // Increase font size for the label
               }}
             />
+            <TextField
+              margin="normal"
+              fullWidth
+              label="Confirm Password"
+              type="password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              required
+              InputProps={{
+                style: { fontSize: 18 }, // Increase font size for the input text
+              }}
+              InputLabelProps={{
+                style: { fontSize: 18 }, // Increase font size for the label
+              }}
+            />
             <Button
               type="submit"
               fullWidth
@@ -77,13 +93,13 @@ const LoginPage = () => {
               color="primary"
               sx={{ mt: 2 }}
             >
-              Login
+              Sign Up
             </Button>
           </form>
           <Typography variant="body2" sx={{ mt: 2 }}>
-            New to Flight Buddy?{' '}
-            <Link component="button" variant="body2" onClick={() => navigate('/signup')}>
-              Click here to sign up
+            Already a user?{' '}
+            <Link component="button" variant="body2" onClick={() => navigate('/login')}>
+              Click here to login
             </Link>
           </Typography>
         </Box>
@@ -92,4 +108,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default SignupPage;
