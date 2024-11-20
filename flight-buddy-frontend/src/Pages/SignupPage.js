@@ -1,12 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import AuthForm from './AuthForm';
 import { signup } from '../API Service/AuthService';
+import { useNavigate } from 'react-router-dom';
 
 const SignupPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
+  const navigate = useNavigate();
+
+  // Check if the user is already logged in and redirect if so
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      navigate('/flights');
+    }
+  }, [navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,7 +30,9 @@ const SignupPage = () => {
     try {
       const data = await signup(email, password);
       
+      // Save the token and redirect to the flights page after successful signup
       localStorage.setItem('token', data.token);
+      navigate('/flights');
     } catch (err) {
       setError(err.message);
     }

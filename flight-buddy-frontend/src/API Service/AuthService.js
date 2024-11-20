@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'https://your-backend-api.com';
+const API_BASE_URL = 'https://Flight-Buddy';
 
 export const login = async (email, password) => {
   try {
