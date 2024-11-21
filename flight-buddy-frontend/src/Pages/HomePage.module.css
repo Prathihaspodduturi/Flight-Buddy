@@ -1,0 +1,79 @@
+/* HomePage.module.css */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .homepageContainer {
+    position: relative;
+    height: 100vh; /* Full viewport height */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 60px; /* Push the text down a little so it's near the top but not flush */
+    color: #000; /* Change text color to black */
+    overflow: hidden; /* Ensure blurred background does not overflow */
+  }
+  
+  .homepageBackground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://plus.unsplash.com/premium_photo-1679830513869-cd3648acb1db?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YWlycGxhbmV8ZW58MHx8MHx8fDA%3D'); /* Background image URL */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: blur(8px); /* Apply blur to the background image */
+    z-index: 0; /* Keep the background behind the content */
+  }
+  
+  .homepageContent {
+    position: relative;
+    z-index: 1; /* Ensure content is above the blurred background */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .homepageTitle {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 20px; /* Add some spacing below the title */
+    color: #000; /* Ensure the title is black */
+  }
+  
+  .homepageDescription {
+    font-size: 1.5rem;
+    text-align: center;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto 20px auto; /* Adjust the margin so the text stays closer to the top */
+    color: #000; /* Change description text color to black */
+  }
+  
+  .homepageButtons {
+    display: flex;
+    gap: 20px; /* Add some space between the buttons */
+    margin-top: 20px; /* Add some spacing above the buttons */
+  }
+  
+  .homepageButton {
+    padding: 12px 25px;
+    font-size: 1rem;
+    color: white;
+    background-color: #007bff; /* Bootstrap blue */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .homepageButton:hover {
+    background-color: #0056b3; /* Darker blue for hover effect */
+  }
+  

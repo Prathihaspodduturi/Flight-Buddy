@@ -5,6 +5,7 @@ import React from 'react';
 import LoginPage from './Pages/LoginPage';
 import SignupPage from './Pages/SignupPage';
 import FlightsPage from './Pages/FlightsPage';
+import HomePage from './Pages/HomePage';
 
 const router = createBrowserRouter([
   {
@@ -21,7 +22,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/',
-    element: <FlightsPage />,
+    element: <HomePage />,
   },
 ]);
 
